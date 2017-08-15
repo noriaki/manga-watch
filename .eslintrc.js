@@ -62,8 +62,8 @@ module.exports = {
     // 'react/jsx-closing-bracket-location': [ 'error', 'after-props' ],
     // 'react/jsx-filename-extension': ['error', { extensions: ['.js'] }],
     // 'react/prop-types': 'warn',
-    'import/no-extraneous-dependencies': [
-      'error', { dependencies: true, peerDependencies: true }
-    ]
+    // 'import/no-extraneous-dependencies': [
+    //   'error', { dependencies: true, peerDependencies: true }
+    // ]
   }
 };
