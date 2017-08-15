@@ -1,0 +1,31 @@
+{
+  "name": "manga-watch",
+  "scripts": {},
+  "env": {
+    "LINE_CHANNEL_SECRET": {
+      "required": true
+    },
+    "LINE_CHANNEL_TOKEN": {
+      "required": true
+    },
+    "MONGODB_URI": {
+      "required": true
+    },
+    "PAPERTRAIL_API_TOKEN": {
+      "required": true
+    },
+    "WEB": {
+      "required": true
+    }
+  },
+  "formation": {},
+  "addons": [
+    "mongolab",
+    "papertrail"
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ]
+}
