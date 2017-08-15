@@ -5,20 +5,21 @@
   "main": "index.js",
   "private": true,
   "engines": {
-    "node": "8.2.1"
+    "node": "8.3.0"
   },
   "scripts": {
     "test": "jest",
     "test:batch": "NODE_ENV=batch jest batch",
     "dev": "",
     "dev:batch": "NODE_ENV=batch nf run babel-node batch/index.js",
-    "dev:server": "nf start server/index.js",
+    "dev:server": "nf start -e .env.dev",
     "build": "",
     "build:batch": "NODE_ENV=batch babel batch -d dist/batch",
     "start": "",
     "start:batch": "node dist/batch/index.js",
     "lint": "eslint --quiet .",
-    "lint:batch": "eslint --quiet batch"
+    "lint:batch": "eslint --quiet batch",
+    "lint:server": "eslint --quiet server"
   },
   "repository": {
     "type": "git",
