@@ -1,0 +1,45 @@
+{
+  "name": "manga-watch",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "private": true,
+  "engines": {
+    "node": "8.2.1"
+  },
+  "scripts": {
+    "test": "jest",
+    "test:batch": "NODE_ENV=batch jest batch",
+    "dev": "",
+    "dev:batch": "NODE_ENV=batch nf run babel-node batch/index.js",
+    "dev:server": "nf start server/index.js",
+    "build": "",
+    "build:batch": "NODE_ENV=batch babel batch -d dist/batch",
+    "start": "",
+    "start:batch": "node dist/batch/index.js",
+    "lint": "eslint --quiet .",
+    "lint:batch": "eslint --quiet batch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/noriaki/manga-watch.git"
+  },
+  "author": {
+    "name": "Noriaki Uchiyama",
+    "email": "uchiyama.noriaki@gmail.com",
+    "url": "https://github.com/noriaki"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/noriaki/manga-watch/issues"
+  },
+  "homepage": "https://github.com/noriaki/manga-watch#readme",
+  "devDependencies": {
+    "eslint": "^4.4.1",
+    "eslint-plugin-import": "^2.7.0",
+    "foreman": "^2.0.0"
+  },
+  "dependencies": {
+    "@3846masa/linebot": "^0.2.1"
+  }
+}
