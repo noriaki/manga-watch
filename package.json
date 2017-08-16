@@ -9,16 +9,14 @@
   },
   "scripts": {
     "test": "jest",
-    "test:batch": "NODE_ENV=batch jest batch",
-    "dev": "",
-    "dev:batch": "NODE_ENV=batch nf run babel-node batch/index.js",
-    "dev:server": "nf start -e .env.dev",
-    "build": "",
-    "build:batch": "NODE_ENV=batch babel batch -d dist/batch",
-    "start": "",
-    "start:batch": "node dist/batch/index.js",
+    "test:batch": "jest batch",
+    "test:common": "jest commons",
+    "test:server": "jest server",
+    "dev:server": "nf start web",
+    "batch": "nf run node batch",
     "lint": "eslint --quiet .",
     "lint:batch": "eslint --quiet batch",
+    "lint:common": "eslint --quiet commons",
     "lint:server": "eslint --quiet server"
   },
   "repository": {

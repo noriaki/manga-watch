@@ -1,6 +1,6 @@
 const { LineBot } = require('@3846masa/linebot/lib/LineBot');
-const { createConnection } = require('./db');
-const { userSchema } = require('./model');
+const { createConnection } = require('../commons/db');
+const { userSchema } = require('../commons/model');
 
 const client = new LineBot({
   channelSecret: process.env.LINE_CHANNEL_SECRET,
