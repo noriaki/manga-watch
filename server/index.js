@@ -1,6 +1,9 @@
-const { LineBot } = require('@3846masa/linebot/lib/LineBot');
+const { LineBot } = require('@noriaki/linebot/lib/LineBot');
 const { createConnection } = require('../commons/db');
 const { userSchema } = require('../commons/model');
+
+const followHandler = require('./handlers/follow');
+const unfollowHandler = require('./handlers/unfollow');
 
 const client = new LineBot({
   channelSecret: process.env.LINE_CHANNEL_SECRET,
@@ -10,25 +13,8 @@ const client = new LineBot({
 const connection = createConnection();
 const User = connection.model('User', userSchema);
 
-client.on('webhook:follow', (ev) => {
-  const identifier = ev.source.userId;
-  console.log('[follow] UserId: %s', identifier);
-  User.findOneAndUpdate(
-    { identifier }, { identifier, active: true }, { new: true, upsert: true }
-  ).then((user) => {
-    console.log('Store user (to active): ', user.id);
-  });
-});
-
-client.on('webhook:unfollow', (ev) => {
-  const identifier = ev.source.userId;
-  console.log('[unfollow] UserId: %s', identifier);
-  User.findOneAndUpdate(
-    { identifier }, { identifier, active: false }, { new: true, upsert: true }
-  ).then((user) => {
-    console.log('Store user (to inactive): ', user.id);
-  });
-});
+client.on('webhook:follow', followHandler(User));
+client.on('webhook:unfollow', unfollowHandler(User));
 
 client.on('webhook:message', (ev) => {
   const message = ev.message;
