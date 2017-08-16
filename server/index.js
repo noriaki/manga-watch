@@ -1,4 +1,4 @@
-const { LineBot } = require('@3846masa/linebot/lib/LineBot');
+const { LineBot } = require('@noriaki/linebot/lib/LineBot');
 const { createConnection } = require('../commons/db');
 const { userSchema } = require('../commons/model');
 
